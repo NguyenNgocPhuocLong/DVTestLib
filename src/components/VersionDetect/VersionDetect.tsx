@@ -4,15 +4,16 @@ import {
 } from "./VersionDetect.types";
 import { compareVersion } from "./VersionDetect.utils";
 import { RETRY_RELOAD_KEY } from "./VersionDetect.constants";
-import React, { FC, useEffect } from "react";
+import React, { useEffect } from "react";
 // import useVersionDetectHook from "./VersionDetect.hooks";
 
-const VersionDetect: FC<VersionDetectProps> = ({
+const VersionDetect = ({
   nameArg = "REACT_APP_BUILD_ID",
   children,
-}) => {
+}: VersionDetectProps) => {
   // const { version, setVersion, refreshCacheReload } = useVersionDetectHook();
-  useEffect(() => {
+
+  React.useEffect(() => {
     const currentVersion = localStorage.getItem(nameArg) || "0";
     console.log(
       "🚀 ~ file: VersionDetect.tsx:14 ~ useEffect ~ currentVersion:",

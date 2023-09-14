@@ -8,16 +8,19 @@ const pkg = JSON.parse(readFileSync("package.json", { encoding: "utf8" }));
 export default [
   {
     input: "src/index.ts",
+    external: ["react", "react-dom"],
     output: [
       {
         file: pkg.main,
         format: "cjs",
         sourcemap: true,
+        emptyOutDir: true,
       },
       {
         file: pkg.module,
         format: "esm",
         sourcemap: true,
+        emptyOutDir: true,
       },
     ],
     plugins: [
